@@ -1,0 +1,53 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!./src/components/Home/Home.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Home_homePage__0ElIn {
+  text-align: center;
+  padding-top: 6.125rem;
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn {
+  width: calc(20% - 1.25rem);
+  position: relative;
+  aspect-ratio: 1/1;
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn .Home_imageWrapper__QpjOo {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn .Home_imageWrapper__QpjOo:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn .Home_imageWrapper__QpjOo img.Home_catImage__WXlYE {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn .Home_imageWrapper__QpjOo .Home_heartIcon__vJ9lV {
+  position: absolute;
+  bottom: 0.3125rem;
+  right: 0.3125rem;
+  font-size: 2rem;
+  color: white;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+  text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn .Home_imageWrapper__QpjOo .Home_heartIcon__vJ9lV.Home_heartHovered__UFwLP {
+  transform: scale(1.3);
+}
+.Home_homePage__0ElIn .Home_catImagesContainer__NzjYA .Home_catImageItem__KjSZn .Home_imageWrapper__QpjOo .Home_heartIcon__vJ9lV.Home_heartRed__L6TRf {
+  color: red;
+}

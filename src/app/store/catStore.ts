@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create as createStore } from 'zustand';
 import { CatImage, fetchCatData } from '../api';
 
 interface CatStore {
@@ -16,7 +16,7 @@ interface CatId {
   storeId: (id: string) => void;
 }
 
-export const useCatStore = create<CatStore>((set) => ({
+export const useCatStore = createStore<CatStore>((set) => ({
   catImages: [],
   loading: false,
   error: null,
@@ -31,35 +31,34 @@ export const useCatStore = create<CatStore>((set) => ({
         throw new Error('No data received');
       }
       set((state) => {
-        const newImages = data.filter(newCat => 
-          !state.catImages.some(existingCat => existingCat.id === newCat.id)
+        const newImages = data.filter((newCat) =>
+          !state.catImages.some((existingCat) => existingCat.id === newCat.id)
         );
         return {
           catImages: [...state.catImages, ...newImages],
           loading: false,
-          page: state.page + 1
+          page: state.page + 1,
         };
       });
-    } catch (error) {
-      set({ 
-        loading: false, 
-        error: error instanceof Error ? error.message : 'Failed to fetch cats'
+    } catch (error: unknown) {
+      set({
+        loading: false,
+        error: error instanceof Error ? error.message : 'Failed to fetch cats',
       });
     }
   },
 }));
 
-export const useIdCatStore = create<CatId>((set) => ({
+export const useIdCatStore = createStore<CatId>((set) => ({
   catId: [],
   mouse: false,
   storeId: (id) => {
     set((state) => ({
       catId: [...state.catId, id],
-      mouse: true
-    }))
-  }
-}))
-
+      mouse: true,
+    }));
+  },
+}));
 
 interface LocalStore {
   lovedCats: string[];
@@ -68,7 +67,7 @@ interface LocalStore {
   removeLovedCat: (catId: string) => void;
 }
 
-export const useLocalStore = create<LocalStore>((set) => ({
+export const useLocalStore = createStore<LocalStore>((set) => ({
   lovedCats: [],
   loadLovedCats: () => {
     const savedCats = localStorage.getItem('lovedCats');
@@ -79,14 +78,14 @@ export const useLocalStore = create<LocalStore>((set) => ({
   addLovedCat: (catId: string) => {
     set((state) => {
       const updatedCats = [...state.lovedCats, catId];
-      localStorage.setItem('lovedCats', JSON.stringify(updatedCats)); // Обновляем localStorage
+      localStorage.setItem('lovedCats', JSON.stringify(updatedCats));
       return { lovedCats: updatedCats };
     });
   },
   removeLovedCat: (catId: string) => {
     set((state) => {
       const updatedCats = state.lovedCats.filter((id) => id !== catId);
-      localStorage.setItem('lovedCats', JSON.stringify(updatedCats)); // Обновляем localStorage
+      localStorage.setItem('lovedCats', JSON.stringify(updatedCats));
       return { lovedCats: updatedCats };
     });
   },
